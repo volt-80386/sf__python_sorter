@@ -15,9 +15,8 @@ mydata = csv.reader(file1, delimiter=';')
 
 sort = sorted(mydata, key=operator.itemgetter(1), reverse=False)
 
-for line in sort:
-    birth_date = datetime.datetime.strptime(line[1], '%Y-%m-%d')
-    youngest = ((datetime.date.today() - birth_date.date()).days) // 365
+birth_date = datetime.datetime.strptime(sort[-1][1], '%Y-%m-%d')
+youngest = ((datetime.date.today() - birth_date.date()).days) // 365
 
 json_array = []
 
