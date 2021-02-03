@@ -9,10 +9,10 @@ parser.add_argument("-o")
 args = parser.parse_args()
 
 if args.i:
-    with open(args.i,'r') as file1:
+    with open(args.i, 'r') as file1:
         data = file1.read()
 
-cutdata = data.replace('"', '')
+cutdata = data.replace(' ', '')
 
 mydata = csv.reader(cutdata.splitlines(), delimiter='=', skipinitialspace=True)
 
