@@ -9,9 +9,12 @@ parser.add_argument("-o")
 args = parser.parse_args()
 
 if args.i:
-    file1 = open(args.i,'r')
-    
-mydata = csv.reader(file1, delimiter=';')
+    with open(args.i,'r') as file1:
+        data = file1.read()
+
+cutdata = data.replace('"', '')
+
+mydata = csv.reader(cutdata.splitlines(), delimiter='=', skipinitialspace=True)
 
 sort = sorted(mydata, key=operator.itemgetter(1), reverse=False)
 
