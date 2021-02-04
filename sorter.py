@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 # Открываем входной файл на чтение
 if args.i:
-    with open(args.i,'r') as file1:
+    with open(args.i, 'r') as file1:
         data = file1.read()
 else:
     sys.exit("Usage: sorter.py -i input_file -o output_file")
